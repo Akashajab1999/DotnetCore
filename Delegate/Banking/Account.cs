@@ -12,16 +12,25 @@ namespace Banking
             this.Balance=amount;
         }
 
-        /*public void Monitor(){
+        //User defined Events
+        //if you want to defined event ,first you need to define delegate
+        //Account class is publisher 
+        // it publish events
+        public event Operation underbalance;
+        public event Operation overbalance;
+
+        public void Monitor(){
             if(this.Balance<5000){
                 //static linking of behaviour
                 //applying Dynamic linking
                 //Handler.BlockedAccount();
+                underbalance();
             }
             else if(this.Balance>=250000){
                 //static linking of behaviour
                 //applying Dynamic linking
                 //Handler.PayIncomeTax();
+                overbalance();
             }
         }
         public void Deposit(double amount){
@@ -36,7 +45,7 @@ namespace Banking
         public static Account Create(double initialAmount){
             Account account =new Account(initialAmount);
             return account;
-        }*/
+        }
         
     }
 }
