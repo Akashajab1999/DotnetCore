@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Index Page";
+}
+
+<div class="text-center">
+<h1   class="display-4">Product Catlog</h1>
+@{
+    List<string> products =ViewData["all products"] as List<string>;
+        @foreach (string title in products)
+        {
+        <li> <a href="/products/Details">@title </a></li>
+        }
+}
+</div>
