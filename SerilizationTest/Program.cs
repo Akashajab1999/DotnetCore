@@ -5,31 +5,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-
-namespace SerilizationTest
-{
+using SerilizationTest;
+ 
 
     //decorator------typescript
     //annotationp----java
     //attribute---c#
     //metadata-----data about data --extra information about an entity product
-    [Serializable]
-    public class Product
-    {
-
-
-        public int Likes { get; set; }
-        public int Id { get; set; }
-
-        public string Title { get; set; }
-
-        public string Description { get; set; }
-
-        public string ImageUrl { get; set; }
-
-        public int UnitPrice { get; set; }
-        public int Quantity { get; set; }
-    }
+   
+   
 
 
     class Program
@@ -196,4 +180,4 @@ namespace SerilizationTest
 
         }
     }
-}
+
