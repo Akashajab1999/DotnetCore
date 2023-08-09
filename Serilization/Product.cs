@@ -1,21 +1,14 @@
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Linq;
-using System.IO;
-using System.Text;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Serilization
-{   
+namespace Seri
+{
 
     [Serializable]
     class Product
     {
 
         
-        int Id{get; set;} 
-        string Name{get; set;}
-        string Description{get; set;}
+       public int Id{get; set;} 
+        public string Name{get; set;}
+        public string Description{get; set;}
 
 
         public Product(int Id,string Name,string Description)

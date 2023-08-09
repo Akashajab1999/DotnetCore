@@ -1,7 +1,7 @@
-using System;
-namespace Catalog{
+namespace Catalog
+{
     public class ProductManager{
-        public static List<Product> GetAllProducts(){
+        public static List<Product> GetAll(){
 
         List<Product> allProducts= new List<Product>();
 
