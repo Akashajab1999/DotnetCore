@@ -1,18 +1,9 @@
-using SessionMvc.Repositories;
-using SessionMvc.Repositories.Interfaces;
-using SessionMvc.Services;
-using SessionMvc.Services.Interfaces;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddTransient<IFruitRepository, FruitRepository>();
-builder.Services.AddTransient<IFlowerRepository, FlowerRepository>();
-builder.Services.AddTransient<IFlowerService, FlowerService>();
-builder.Services.AddTransient<IFruitService, FruitService>();
-builder.Services.AddTransient<IFinancialsService, FinancialsService>();
 
 
 //services.AddMemoryCache();  /// keeping session data  in proc
