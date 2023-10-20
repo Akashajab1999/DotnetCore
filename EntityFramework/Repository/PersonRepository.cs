@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Transflower.EntityFramework.Models;
 using Transflower.Repositories.Context;
 
@@ -23,4 +24,30 @@ public class PersonRepository : IPersonRepository
              throw;
         }
     }
+
+
+    public bool Insert(Person person){
+
+        try{
+
+            bool status =false;
+            _personContext.Person.Add(person);
+            status= SaveChanges(_personContext);
+            return status;
+        }
+        catch(Exception){
+            throw;
+        }
+    }
+
+
+     private bool SaveChanges(PersonContext personContext)
+        {
+            int rowsAffected = personContext.SaveChanges();
+            if (rowsAffected > 0)
+            {
+                return true;
+            }
+            return false;
+        }
 }

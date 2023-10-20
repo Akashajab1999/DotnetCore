@@ -23,4 +23,14 @@ public List<Person> GetAll(){
     return peoples;
 }
 
+
+
+[HttpPost("Insert")]
+public bool Insert(Person person){
+    
+    bool  people = _personService.Insert(person);
+
+    return people;
+}
+
 }
