@@ -16,4 +16,6 @@ public class PersonService : IPersonService
     public bool Insert(Person person)=>_service.Insert(person);
 
     public bool Update(Person person)=>_service.Update(person);
+
+    public bool Delete(int personId)=>_service.Delete(personId);
 }

@@ -43,4 +43,13 @@ public bool Update(Person person){
     return people;
 }
 
+
+
+[HttpPut("Delete/{personId}")]
+public bool Delete(int personId){
+    
+    bool  people = _personService.Delete(personId);
+
+    return people;
+}
 }

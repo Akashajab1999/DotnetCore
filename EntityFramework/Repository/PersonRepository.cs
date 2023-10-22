@@ -72,4 +72,24 @@ public class PersonRepository : IPersonRepository
 
         }
     }
+
+     public bool Delete(int personId){
+
+        try{
+
+            bool status = false;
+            var oldPerson= _personContext.Person.Find(personId);
+            if(oldPerson is not null){
+
+            _personContext.Remove(oldPerson);
+            status=SaveChanges(_personContext);
+            }
+           return status;
+        }
+
+        catch(Exception){
+            throw;
+
+        }
+    }
 }
