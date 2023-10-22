@@ -14,4 +14,6 @@ public class PersonService : IPersonService
     public List<Person> GetAll()=>_service.GetAll();
     
     public bool Insert(Person person)=>_service.Insert(person);
+
+    public bool Update(Person person)=>_service.Update(person);
 }

@@ -33,4 +33,14 @@ public bool Insert(Person person){
     return people;
 }
 
+
+
+[HttpPut("Update")]
+public bool Update(Person person){
+    
+    bool  people = _personService.Update(person);
+
+    return people;
+}
+
 }

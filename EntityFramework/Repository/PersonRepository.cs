@@ -50,4 +50,26 @@ public class PersonRepository : IPersonRepository
             }
             return false;
         }
+
+
+    public bool Update(Person person){
+
+        try{
+
+            bool status = false;
+            var oldPerson= _personContext.Person.Find(person.Id);
+            if(oldPerson is not null){
+
+                oldPerson.Id=person.Id;
+                oldPerson.Name=person.Name;
+               status=SaveChanges(_personContext); 
+            }
+           return status;
+        }
+
+        catch(Exception){
+            throw;
+
+        }
+    }
 }
