@@ -7,4 +7,8 @@ public virtual string CollegeName(){
           return collageName;
         }
 
+  public void StudentDetails(){
+    Console.WriteLine("Akash Shivaji Ajab");
+  }
+
 }

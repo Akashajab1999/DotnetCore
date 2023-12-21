@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+   <PackageReference Include="Net.Codecrete.QrCodeGenerator" Version="2.0.4" />
+    
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using MySql.Data.MySqlClient;
 using Transflower.EntityFramework.Models;
 using Transflower.Repositories.Context;
 
