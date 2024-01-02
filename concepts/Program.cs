@@ -15,11 +15,11 @@ using System;
             //Calling the Method with the REF arguments
             int AdditionRef = 0;
             int SubtractionRef = 0;
-            Ref.MathRef(200, 100, ref AdditionRef, ref SubtractionRef);
+            Ref.MathRef(200, 100,  ref AdditionRef,ref  SubtractionRef );
             Console.WriteLine($"AdditionRef: {AdditionRef}");
             Console.WriteLine($"SubtractionRef: {SubtractionRef}");
 
-            //Call the Method with the OUT arguments
+            // Call the Method with the OUT arguments
             int AdditionOut = 0;
             int SubtractionOut = 0;
 
@@ -28,7 +28,7 @@ using System;
             Console.WriteLine($"AdditionOut: {AdditionOut}");
             Console.WriteLine($"SubtractionOut: {SubtractionOut}");
 
-            Console.ReadKey();
+            // Console.ReadKey();
     
 
       

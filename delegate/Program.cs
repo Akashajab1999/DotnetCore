@@ -1,9 +1,14 @@
-﻿
-using System;
+﻿using tfl;
 
-Delegate z
+MyDelegate s1= new MyDelegate(student.PRintMyName);
+s1+=student.PRintMyFullName;
+// void PRintMyName(string message)
+// {
+//     Console.WriteLine(message);
+// }
 
- MyDelegate delegateInstance = new MyDelegate(PrintMessage);
 
-        // Call the method through the delegate
-delegateInstance("Hello, World!");
+
+s1("akash ajab");
+
+

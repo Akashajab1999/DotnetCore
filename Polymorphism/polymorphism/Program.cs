@@ -1,18 +1,18 @@
 ﻿
-//method overloading
+// method overloading
 
-// Student student = new Student();
+Student student = new Student();
 
-//  String Employee=student.AddName("Pragati","bangar");
-//   Console.WriteLine(Employee);
+ String Employee=student.AddName("sahil","mankar");
+  Console.WriteLine(Employee);
 
-// string employee=student.AddName("Akash");
-//  Console.WriteLine(employee);
-
-
+string employee=student.AddName("ritesh","Chopra");
+ Console.WriteLine(employee);
 
 
-//method overriding
+
+
+// method overriding
 College p1 = new Student();
  string c1=p1.CollegeName();
  p1.StudentDetails();
