@@ -7,8 +7,8 @@ namespace Serilization
 
         static void Main(String[] args)
         {
-        string path=@"C:\LocalRepo\dotnet project\EssentialDotnet\serialize.txt";
-        //Product p1 = new Product(2,"Rose","valentineFlower");
+        string path="se.txt";
+        // Product p1 = new Product(2,"Lotus","valentineFlower");
         //  FileStream stream= new FileStream(path,FileMode.OpenOrCreate);
         //  BinaryFormatter obj= new BinaryFormatter();
         //  obj.Serialize(stream,p1);

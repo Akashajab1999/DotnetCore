@@ -1,4 +1,5 @@
 ﻿using System;
+using Hr;
 
 namespace AnnonumousMethodTest
 {
@@ -30,9 +31,10 @@ namespace AnnonumousMethodTest
             //Inline function 
             //annonymous method
 
-            BasicOperation method2 = delegate ()
+            var method2 = delegate ()
             {
-                Console.WriteLine("Printing company annual report");
+                // Console.WriteLine("Printing company annual report");
+                PrintReport();
             };
             method2();
 
@@ -50,13 +52,15 @@ namespace AnnonumousMethodTest
             
 
             //use of Lambda
-            annonymousoperation1 proxy2=x=>x*2;
+            annonymousoperation1 proxy2=(x)=>{ return x*2;};
             Console.WriteLine("{0}",proxy2(25));
 
 
-            annonymousoperation2 ak = new annonymousoperation2(delegate(int x,int y){
+            var ak =delegate(int x,int y){
                 return x*y;
-            });
+            };
+            var ak2 = ()=>{ Console.WriteLine("Akash");};
+            ak2();
 
             Console.WriteLine(ak(25,25));
 
@@ -67,6 +71,14 @@ namespace AnnonumousMethodTest
             Console.WriteLine(getBigInteger(10,20));
 
             Console.WriteLine("Welcome to .Net core programming");
+
+
+            Student s1 =new Student();
+            delegate1 s2=new delegate1(s1.GetName);
+            // s2();
+            
+            s2+=s1.GetDetails;
+            s2();
         }
     }
 }
