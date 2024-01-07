@@ -50,7 +50,7 @@ namespace AnnonumousMethodTest
             );
             Console.WriteLine( "{0}",proxy1(5));
             
-
+           
             //use of Lambda
             annonymousoperation1 proxy2=(x)=>{ return x*2;};
             Console.WriteLine("{0}",proxy2(25));

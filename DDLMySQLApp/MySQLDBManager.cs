@@ -8,7 +8,7 @@ namespace DAL;
 //Class is used to define reusable functions  for CRUD Operations against Students table
 public static class MySqlDBManager{
 
-    public static string conString = "server=localhost; user=root; database=classicmodels; password=PASSWORD ";
+    public static string conString = "server=localhost; user=root; database=tflportal; password=password ";
 
     public static bool CreateTable(){
         //code for creating table student
@@ -18,7 +18,7 @@ public static class MySqlDBManager{
         con.ConnectionString = conString;
         try{
             /*DDL command*/
-            string query = "CREATE TABLE students(studentid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,"+
+            string query = "CREATE TABLE stud(studentid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,"+
                            "firstName VARCHAR(25),"+
                            "lastName VARCHAR(55),"+
                            "qualification VARCHAR(55)"+
@@ -26,8 +26,13 @@ public static class MySqlDBManager{
             Console.WriteLine(query);
             MySqlCommand cmd = new MySqlCommand(query,con);
             con.Open();
-            cmd.ExecuteNonQuery();
-            status = true;
+             int rowsAffected = cmd.ExecuteNonQuery();
+            if (rowsAffected > 0)
+            {
+                status = true;
+                Console.WriteLine("table created succesfully");
+            }
+        
         }
         catch(Exception ee){
             Console.WriteLine(ee.Message);
@@ -45,7 +50,7 @@ public static class MySqlDBManager{
         con.ConnectionString = conString;
         try{
             /*DDL command*/
-            string query = "INSERT INTO students(firstName, lastName, qualification) values('"+fname+ "', '" + lname + "', '" + qual + "')";
+            string query = "INSERT INTO stud(firstName, lastName, qualification) values('"+fname+ "', '" + lname + "', '" + qual + "')";
             Console.WriteLine(query);
 
             MySqlCommand cmd = new MySqlCommand(query,con);
@@ -94,7 +99,7 @@ public static class MySqlDBManager{
         con.ConnectionString = conString;
         try{
             //update command
-            string query ="Delete from students WHERE studentID= "+id;
+            string query ="Delete from stud WHERE studentID= "+id;
             Console.WriteLine(query);
             MySqlCommand cmd =new MySqlCommand(query,con);
             con.Open();
@@ -114,7 +119,7 @@ public static class MySqlDBManager{
         try{
             con.ConnectionString = conString;
             con.Open();
-            string query = "SELECT * FROM students";
+            string query = "SELECT * FROM stud";
             MySqlCommand cmd = new MySqlCommand(query,con);
             MySqlDataReader rdr = cmd.ExecuteReader();
             while(rdr.Read())
