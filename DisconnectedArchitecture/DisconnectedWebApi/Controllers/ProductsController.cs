@@ -22,4 +22,18 @@ public class ProjectController : ControllerBase
    status=_projectService.Update(project);
        return status; 
     }
+
+    [HttpPost("Insert")]
+ public bool Insert( Project project){
+   bool status =false;
+   status=_projectService.Insert(project);
+       return status; 
+    }
+
+
+[HttpGet("projects")]
+ public List<Project> GetProjects(){
+  
+    return _projectService.GetProjects(); 
+    }
 }
