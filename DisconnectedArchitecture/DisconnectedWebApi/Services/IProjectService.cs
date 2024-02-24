@@ -3,9 +3,12 @@ using TFLPortal.Models;
 namespace TFLPortal.Services;
 public interface IProjectService{
 
-    public  bool Update(Project project);
+  
 
     public  List<Project> GetProjects();
 
+    public Project GetProject(int id);
     public bool Insert(Project project);
+    public  bool Update(Project project);
+    public  bool Delete(int id);
 }
