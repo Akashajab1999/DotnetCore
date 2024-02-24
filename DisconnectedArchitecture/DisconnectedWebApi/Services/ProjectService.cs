@@ -18,15 +18,6 @@ public class ProjectService : IProjectService
   }
   public bool Update(Project project)
   {
-    // List<Project> projects = new List<Project>();
-    //   Project project =new Project{
-    //     Id = 1,
-    //     Title="PMS",
-    //     StartDate= new DateTime(2023,01,01),
-    //     EndDate=new DateTime(2023,01,01),
-    //     Description="Project Management Sercice"
-    //    };
-    //   projects.Add(project);
     bool status = false;
     MySqlConnection connection = new MySqlConnection();
     connection.ConnectionString = _connectionString;
@@ -62,7 +53,7 @@ public class ProjectService : IProjectService
   }
 
 
-  public List<Project> GetProjects()
+  public async Task<List<Project>> GetProjects()
   {
     List<Project> projects = new List<Project>();
     MySqlConnection connection = new MySqlConnection(_connectionString);
@@ -72,7 +63,7 @@ public class ProjectService : IProjectService
       MySqlCommand command = new MySqlCommand(query, connection);
       MySqlDataAdapter dataAdapter = new MySqlDataAdapter(command);
       DataSet dataSet = new DataSet();
-      dataAdapter.Fill(dataSet);
+       await  dataAdapter.FillAsync(dataSet);
       DataTable dataTable = dataSet.Tables[0];
       foreach (DataRow dataRow in dataTable.Rows)
       {

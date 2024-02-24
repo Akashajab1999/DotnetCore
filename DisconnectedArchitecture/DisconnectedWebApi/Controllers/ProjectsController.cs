@@ -34,10 +34,10 @@ public class ProjectController : ControllerBase
 
 
     [HttpGet("projects")]
-    public List<Project> GetProjects()
+    public async Task<List<Project>> GetProjects()
     {
 
-        return _projectService.GetProjects();
+        return await _projectService.GetProjects();
     }
 
 

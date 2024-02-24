@@ -5,7 +5,7 @@ public interface IProjectService{
 
   
 
-    public  List<Project> GetProjects();
+    public  Task<List<Project>> GetProjects();
 
     public Project GetProject(int id);
     public bool Insert(Project project);
