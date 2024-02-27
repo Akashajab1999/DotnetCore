@@ -1,0 +1,47 @@
+@using TFLPortal.Models;
+@{
+    ViewData["Title"] = "Show Page";
+}
+<html>
+<head>
+
+<link rel="stylesheet" href="~/css/table.css" type="text/css" />
+</head>
+<body >
+
+<div class="text-center">
+    <h1 class="display-4"> Project By Id</h1>
+    <div style="text-align:left; margin: 8px;">
+   <button ><a  href="Search"> search<a/></button>
+   </div>
+    @{
+         Project project=Model;
+         <table>
+         <tr>
+         <th>Id</th>
+         <th>ProjectName</th>
+         <th>StartDate</th>
+         <th>EndDate</th>
+         <th>Description</th>
+         <th>Status</th>
+        @* <th>Details</th>*@
+         </tr>
+            <tr>
+            <td>@project.Id</td>
+            <td>@project.Title</td>
+            <td>@project.StartDate</td>
+            <td>@project.EndDate</td>
+            <td>@project.Description</td>
+            <td>@project.Status</td>
+           @* <td><button>@Html.ActionLink("Details","ShowById","Employee",new {Id=item.Id},"")</button></td>*@
+            @* <td><button>@Html.ActionLink("Update","Update","Employee",new {Id=item.Id},"")</button></td>
+            <td><button>@Html.ActionLink("Delete","Delete","Employee",new {Id=item.Id},"")</button></td> *@
+            </tr>
+         }
+         </table>
+         
+    }
+    
+</div>
+</body>
+</html>
