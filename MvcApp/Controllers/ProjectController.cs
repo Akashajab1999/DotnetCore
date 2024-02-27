@@ -21,8 +21,15 @@ public class ProjectController : Controller
     {
 
         Project project=_projectService.GetProject(id);
-        //  ViewData["Project"]=project;
+         // ViewData["Project"]=project;
            return View(project);
+    }
+
+    public  async Task<IActionResult> GetProjects()
+    {
+       List<Project> projects= await _projectService.GetProjects();
+          ViewData["Projects"]=projects;
+           return View(projects);
     }
 
     
