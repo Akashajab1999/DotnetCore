@@ -1,0 +1,50 @@
+@model TFLPortal.Models.Project
+
+@{
+    ViewData["Title"] = "Insert Project";
+}
+
+<h2>Insert Project</h2>
+
+@if (ViewData["InsertStatus"] != null)
+{
+    bool status = (bool)ViewData["InsertStatus"];
+    <div class="alert @(status ? "alert-success" : "alert-danger")" role="alert">
+        @if (status)
+        {
+            <p>Project inserted successfully!</p>
+        }
+        else
+        {
+            <p>Failed to insert project. Please try again.</p>
+        }
+    </div>
+}
+
+<form asp-controller="Project" asp-action="Insert" method="post">
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+        </br>
+         <label asp-for="Description" class="control-label"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+        </br>
+         <label asp-for="Status" class="control-label"></label>
+        <input asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+        </br>
+         <label asp-for="StartDate" class="control-label"></label>
+        <input asp-for="StartDate" class="form-control" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+        </br>
+         <label asp-for="EndDate" class="control-label"></label>
+        <input asp-for="EndDate" class="form-control" />
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+     </br>
+    <!-- Add other fields as necessary -->
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

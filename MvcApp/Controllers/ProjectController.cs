@@ -25,6 +25,13 @@ public class ProjectController : Controller
            return View(project);
     }
 
+     public IActionResult Insert(Project project)
+    {
+        bool status=_projectService.Insert(project);
+         ViewData["InsertProject"]=status;
+       return View();
+    }
+
     public  async Task<IActionResult> GetProjects()
     {
        List<Project> projects= await _projectService.GetProjects();
