@@ -25,6 +25,8 @@ public class ProjectController : Controller
            return View(project);
     }
 
+
+   
      public IActionResult Insert(Project project)
     {
         bool status=_projectService.Insert(project);
@@ -37,6 +39,21 @@ public class ProjectController : Controller
        List<Project> projects= await _projectService.GetProjects();
           ViewData["Projects"]=projects;
            return View(projects);
+    }
+
+
+ [HttpGet]
+    public IActionResult Update(int id)
+    {   
+       Project project=_projectService.GetProject(id);
+       return View(project);
+    }
+
+    [HttpPost]
+    public IActionResult Update(Project project)
+    {   
+        bool status=_projectService.Update(project);
+       return RedirectToAction("Index","Home");
     }
 
     

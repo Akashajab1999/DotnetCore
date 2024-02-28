@@ -1,27 +1,13 @@
 @model TFLPortal.Models.Project
 
 @{
-    ViewData["Title"] = "Insert Project";
+    ViewData["Title"] = "Update Project";
 }
 
-<h2>Insert Project</h2>
+<h2>Update Project</h2>
 
-@if (ViewData["InsertProject"] != null)
-{
-    bool status = (bool)ViewData["InsertProject"];
-    <div class="alert @(status ? "alert-success" : "alert-danger")" role="alert">
-        @if (status)
-        {
-            <p>Project inserted successfully!</p>
-        }
-        else
-        {
-            <p>Failed to insert project. Please try again.</p>
-        }
-    </div>
-}
 
-<form asp-controller="Project" asp-action="Insert" method="post">
+<form asp-controller="Project" asp-action="Update" method="post">
     <div class="form-group">
         <label asp-for="Title" class="control-label"></label>
         <input asp-for="Title" class="form-control" />

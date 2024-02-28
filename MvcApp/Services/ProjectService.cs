@@ -39,6 +39,9 @@ public class ProjectService : IProjectService
       DataRow row = dataTable.Rows.Find(project.Id);
       row["title"] = project.Title;
       row["description"]=project.Description;
+       row["startdate"] = project.StartDate;
+      row["enddate"]=project.EndDate;
+       row["status"] = project.Status;
       adapter.Update(dataSet);
       status = true;
 
