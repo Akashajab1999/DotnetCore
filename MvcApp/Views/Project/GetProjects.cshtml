@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Show Page";
 }
-<html>
+ <html>
 <head>
 
 <link rel="stylesheet" href="~/css/table.css" type="text/css" />
@@ -13,33 +13,33 @@
     <h1 class="display-4"> Project By Id</h1>
     <div style="text-align:left; margin: 8px;">
    <button ><a  href="Search"> search<a/></button>
-   </div>
+   </div> 
     @{
          
-         <table>
+          <table>
          <tr>
          <th>Id</th>
          <th>ProjectName</th>
          <th>StartDate</th>
          <th>EndDate</th>
          <th>Description</th>
-         <th>Status</th>
-        @* <th>Details</th>*@
-         </tr>
-            
-                @foreach(var project in ViewData["projects"] as List<Project>)
-            {
+         <th>Status</th> 
+         <th>Details</th>
+          </tr>
+             
+                @foreach(var project in ViewData["projects"] as List<Project>) 
+             {
             <tr>
             <td>@project.Id</td>
             <td>@project.Title</td>
             <td>@project.StartDate</td>
             <td>@project.EndDate</td>
             <td>@project.Description</td>
-            <td>@project.Status</td>
+            <td>@project.Status</td> 
            @* <td><button>@Html.ActionLink("Details","ShowById","Employee",new {Id=item.Id},"")</button></td>*@
             @* <td><button>@Html.ActionLink("Update","Update","Employee",new {Id=item.Id},"")</button></td>
             <td><button>@Html.ActionLink("Delete","Delete","Employee",new {Id=item.Id},"")</button></td> *@
-            </tr>}
+            </tr>} 
          }
          </table>
          
@@ -47,4 +47,50 @@
     
 </div>
 </body>
-</html>
+</html> 
+
+
+
+
+
+
+
+
+
+
+@* <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery AJAX Example</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div id="todos"></div>
+
+<script>
+$(document).ready(function(){
+    $.ajax({
+        url: 'http://localhost:5077/project/GetProjects',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            var todosHTML = '<h2>To-Do List</h2><ul>';
+            $.each(data, function(index, todo) {
+                todosHTML += '<li>' + todo.Title + '</li>';
+            });
+            todosHTML += '</ul>';
+            $('#todos').html(todosHTML);
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', status, error);
+            $('#todos').html('<p>Error fetching data from the server.</p>');
+        }
+    });
+});
+</script>
+
+</body>
+</html> *@

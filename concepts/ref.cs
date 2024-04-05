@@ -1,4 +1,7 @@
 
+using System.Data.SqlTypes;
+using System.Diagnostics.Contracts;
+
 namespace Tfl;
 public static class Ref{
      
@@ -9,4 +12,10 @@ public static class Ref{
             Subtraction = number1 - number2; //This will Update the Subtraction variable inside the Main method
         }
      
+
+     public  static int Addition(ref int a,ref int b){
+       int c = a+b;
+
+       return c;
+     }
 }

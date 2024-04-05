@@ -56,6 +56,24 @@ public class ProjectController : Controller
        return RedirectToAction("Index","Home");
     }
 
+
+
+
+[HttpGet]
+    public IActionResult Delete(int id)
+    {   
+        ViewData["project"]=_projectService.GetProject(id);
+       return View();
+    }
+
+
+// [HttpPost]
+//     public IActionResult Delete(Project project)
+//     {   
+   
+//        bool status= _projectService.Delete(project.Id);
+//        return RedirectToAction("GetProjects","Project");
+//     }
     
 
 

@@ -1,0 +1,45 @@
+@using TFLPortal.Models;
+@model TFLPortal.Models.Project;
+@{
+    ViewData["Title"] = "Delete Page";
+}
+<html>
+
+<head>
+    <link rel="stylesheet" href="~/css/table.css" type="text/css" />
+</head>
+
+<body>
+    <h2 align="center">Delete</h2>
+    @using (Html.BeginForm())
+    {
+        <table align="center">
+            <tr>
+                <th>@Html.LabelFor(model => model.Id)</th>
+                <th>@Html.LabelFor( model => model.Title)</th>
+                <th>@Html.LabelFor( model => model.StartDate)</th>
+                <th>@Html.LabelFor(model => model.EndDate)</th>
+                <th>@Html.LabelFor( model => model.Description)</th>
+                <th>@Html.LabelFor( model => model.Status)</th>
+
+               
+            </tr>
+            <tr>
+                <td>@Html.DisplayFor( model => model.Id)</td>
+                <td>@Html.DisplayFor( model => model.Title)</td>
+                <td>@Html.DisplayFor( model => model.StartDate)</td>
+                <td>@Html.DisplayFor( model => model.EndDate)</td>
+                <td>@Html.DisplayFor( model => model.Description)</td>
+                <td>@Html.DisplayFor( model => model.Status)</td>
+            </tr>
+        </table>
+
+        <div style="text-align: center;">
+            <button> <input type="submit" value="Delete" /> </button>
+            <button> <a href="/Project/GetProjects"> Back </a></button>
+        </div>
+    }
+
+</body>
+
+</html>

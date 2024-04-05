@@ -13,25 +13,34 @@ using Tfl;
 using System;
 
             //Calling the Method with the REF arguments
-            int AdditionRef = 0;
-            int SubtractionRef = 0;
-            Ref.MathRef(200, 100,  ref AdditionRef,ref  SubtractionRef );
-            Console.WriteLine($"AdditionRef: {AdditionRef}");
-            Console.WriteLine($"SubtractionRef: {SubtractionRef}");
+            // int AdditionRef = 0;
+            // int SubtractionRef = 0;
+            // Ref.MathRef(200, 100,  ref AdditionRef,ref  SubtractionRef );
+            // Console.WriteLine($"AdditionRef: {AdditionRef}");
+            // Console.WriteLine($"SubtractionRef: {SubtractionRef}");
 
             // Call the Method with the OUT arguments
-            int AdditionOut = 0;
-            int SubtractionOut = 0;
+            // int AdditionOut = 0;
+            // int SubtractionOut = 0;
 
-            Out p1 = new Out();
-            p1.MathOut(200, 100, out AdditionOut, out SubtractionOut);
-            Console.WriteLine($"AdditionOut: {AdditionOut}");
-            Console.WriteLine($"SubtractionOut: {SubtractionOut}");
+            // Out p1 = new Out();
+            // p1.MathOut(200, 100, out AdditionOut, out SubtractionOut);
+            // Console.WriteLine($"AdditionOut: {AdditionOut}");
+            // Console.WriteLine($"SubtractionOut: {SubtractionOut}");
 
             // Console.ReadKey();
     
 
+
+    //for ref keyword
+    //   int a =10;
+    //   int b = 20;
+    //   int d=  Ref.Addition(ref a ,ref b);
+    //   Console.WriteLine(d);
+      
       
 
-      
+     //for out keyword
+      int c = Out.Addition(out int a ,out int b);
+      Console.WriteLine(c);
 
