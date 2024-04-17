@@ -10,74 +10,79 @@ public class ProjectController : Controller
 {
 
 
-  private readonly IProjectService _projectService;
+    private readonly IProjectService _projectService;
     public ProjectController(IProjectService projectService)
     {
-       _projectService=projectService;
+        _projectService = projectService;
     }
 
-   
-     public IActionResult GetProject(int id)
+
+    public IActionResult GetProject(int id)
     {
 
-        Project project=_projectService.GetProject(id);
-         // ViewData["Project"]=project;
-           return View(project);
+        Project project = _projectService.GetProject(id);
+        ViewData["Project"] = project;
+        return View(project);
     }
 
-
-   
-     public IActionResult Insert(Project project)
+    public IActionResult Insert()
     {
-        bool status=_projectService.Insert(project);
-         ViewData["InsertProject"]=status;
-       return View();
+
+        Project project = new Project();
+        return View(project);
     }
 
-    public  async Task<IActionResult> GetProjects()
+    [HttpPost]
+    public IActionResult Insert(Project project)
     {
-       List<Project> projects= await _projectService.GetProjects();
-          ViewData["Projects"]=projects;
-           return View(projects);
+        bool status = _projectService.Insert(project);
+        return RedirectToAction("GetProjects","Project");
+    }
+
+    public async Task<IActionResult> GetProjects()
+    {
+        List<Project> projects = await _projectService.GetProjects();
+        ViewData["Projects"] = projects;
+        return View(projects);
     }
 
 
- [HttpGet]
+    [HttpGet]
     public IActionResult Update(int id)
-    {   
-       Project project=_projectService.GetProject(id);
-       return View(project);
+    {
+        Project project = _projectService.GetProject(id);
+        return View(project);
     }
 
     [HttpPost]
     public IActionResult Update(Project project)
-    {   
-        bool status=_projectService.Update(project);
-       return RedirectToAction("Index","Home");
+    {
+        bool status = _projectService.Update(project);
+        return RedirectToAction("Index", "Home");
     }
 
 
 
 
-[HttpGet]
+    [HttpGet]
     public IActionResult Delete(int id)
-    {   
-        ViewData["project"]=_projectService.GetProject(id);
-       return View();
+    {
+        ViewData["project"] = _projectService.GetProject(id);
+        return View();
     }
 
 
-// [HttpPost]
-//     public IActionResult Delete(Project project)
-//     {   
-   
-//        bool status= _projectService.Delete(project.Id);
-//        return RedirectToAction("GetProjects","Project");
-//     }
-    
+    // [HttpPost]
+    //     public IActionResult Delete(Project project)
+    //     {   
+
+    //        bool status= _projectService.Delete(project.Id);
+    //        return RedirectToAction("GetProjects","Project");
+    //     }
 
 
-    
+
+
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

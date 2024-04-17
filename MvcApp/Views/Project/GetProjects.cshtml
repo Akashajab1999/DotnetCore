@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Show Page";
 }
- <html>
+ @* <html>
 <head>
 
 <link rel="stylesheet" href="~/css/table.css" type="text/css" />
@@ -36,9 +36,6 @@
             <td>@project.EndDate</td>
             <td>@project.Description</td>
             <td>@project.Status</td> 
-           @* <td><button>@Html.ActionLink("Details","ShowById","Employee",new {Id=item.Id},"")</button></td>*@
-            @* <td><button>@Html.ActionLink("Update","Update","Employee",new {Id=item.Id},"")</button></td>
-            <td><button>@Html.ActionLink("Delete","Delete","Employee",new {Id=item.Id},"")</button></td> *@
             </tr>} 
          }
          </table>
@@ -47,50 +44,56 @@
     
 </div>
 </body>
-</html> 
+</html> *@
 
 
 
-
-
-
-
-
-
-
-@* <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>jQuery AJAX Example</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Project List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Ajax call to retrieve data asynchronously
+            $.ajax({
+                url: '@Url.Action("GetProjects", "Project")',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    // Handle success
+                    console.log(data);
+                },
+                error: function (xhr, status, error) {
+                    // Handle error
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
-
-<div id="todos"></div>
-
-<script>
-$(document).ready(function(){
-    $.ajax({
-        url: 'http://localhost:5077/project/GetProjects',
-        method: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            var todosHTML = '<h2>To-Do List</h2><ul>';
-            $.each(data, function(index, todo) {
-                todosHTML += '<li>' + todo.Title + '</li>';
-            });
-            todosHTML += '</ul>';
-            $('#todos').html(todosHTML);
-        },
-        error: function(xhr, status, error) {
-            console.error('Error:', status, error);
-            $('#todos').html('<p>Error fetching data from the server.</p>');
-        }
-    });
-});
-</script>
-
+    <h1>Project List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var project in ViewData["projects"] as List<Project>)
+            {
+                <tr>
+                    <td>@project.Id</td>
+                    <td>@project.Title</td>
+                    <td>@project.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </body>
-</html> *@
+</html>
+
+

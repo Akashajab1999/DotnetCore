@@ -6,45 +6,56 @@
 
 <h2>Insert Project</h2>
 
-@if (ViewData["InsertProject"] != null)
-{
-    bool status = (bool)ViewData["InsertProject"];
-    <div class="alert @(status ? "alert-success" : "alert-danger")" role="alert">
-        @if (status)
-        {
-            <p>Project inserted successfully!</p>
-        }
-        else
-        {
-            <p>Failed to insert project. Please try again.</p>
-        }
-    </div>
-}
-
-<form asp-controller="Project" asp-action="Insert" method="post">
+<form id="insertProjectForm">
     <div class="form-group">
-        <label asp-for="Title" class="control-label"></label>
-        <input asp-for="Title" class="form-control" />
-        <span asp-validation-for="Title" class="text-danger"></span>
+        <label for="Title" class="control-label">Title:</label>
+        <input type="text" id="Title" name="Title" class="form-control" />
+        <span id="titleError" class="text-danger"></span>
         </br>
-         <label asp-for="Description" class="control-label"></label>
-        <input asp-for="Description" class="form-control" />
-        <span asp-validation-for="Description" class="text-danger"></span>
+        <label for="Description" class="control-label">Description:</label>
+        <input type="text" id="Description" name="Description" class="form-control" />
+        <span id="descriptionError" class="text-danger"></span>
         </br>
-         <label asp-for="Status" class="control-label"></label>
-        <input asp-for="Status" class="form-control" />
-        <span asp-validation-for="Status" class="text-danger"></span>
+        <label for="Status" class="control-label">Status:</label>
+        <input type="text" id="Status" name="Status" class="form-control" />
+        <span id="statusError" class="text-danger"></span>
         </br>
-         <label asp-for="StartDate" class="control-label"></label>
-        <input asp-for="StartDate" class="form-control" />
-        <span asp-validation-for="StartDate" class="text-danger"></span>
+        <label for="StartDate" class="control-label">Start Date:</label>
+        <input type="date" id="StartDate" name="StartDate" class="form-control" />
+        <span id="startDateError" class="text-danger"></span>
         </br>
-         <label asp-for="EndDate" class="control-label"></label>
-
-        <input asp-for="EndDate" class="form-control" />
-        <span asp-validation-for="EndDate" class="text-danger"></span>
+        <label for="EndDate" class="control-label">End Date:</label>
+        <input type="date" id="EndDate" name="EndDate" class="form-control" />
+        <span id="endDateError" class="text-danger"></span>
     </div>
-     </br>
+    </br>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" id="submitProject" class="btn btn-primary">Submit</button>
 </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#submitProject').click(function () {
+            var formData = $('#insertProjectForm').serializeArray();
+                
+
+            $.ajax({
+                url: '@Url.Action("Insert", "Project")', // URL where the form data will be submitted
+                type: 'POST', // HTTP method
+                dataType: 'json', // Expected data type of the response
+                contentType: 'application/json', // Content type of the request
+                data: JSON.stringify(formData), // Form data to be submitted (converted to JSON string)
+                success: function (response) {
+                    // Handle success
+                   // console.log(response);
+                    // You can update the UI or perform other actions based on the response here
+                },
+                error: function (xhr, status, error) {
+                    // Handle error
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
