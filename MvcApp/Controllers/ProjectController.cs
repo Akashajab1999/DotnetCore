@@ -32,6 +32,14 @@ public class ProjectController : Controller
         return View(project);
     }
 
+
+    public IActionResult PartialView()
+    {
+
+       
+        return View();
+    }
+
     [HttpPost]
     public IActionResult Insert(Project project)
     {
@@ -42,7 +50,7 @@ public class ProjectController : Controller
     public async Task<IActionResult> GetProjects()
     {
         List<Project> projects = await _projectService.GetProjects();
-        ViewData["Projects"] = projects;
+        // ViewData["Projects"] = projects;
         return View(projects);
     }
 
